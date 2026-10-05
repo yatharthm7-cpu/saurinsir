@@ -1,0 +1,16 @@
+Use case: premium product cover asset for a commerce tuition website.
+Create a single portrait 2:3 image of a luxurious commerce textbook FRONT COVER, perfectly straight-on orthographic front view, cover occupies the entire image edge to edge. This is a cover texture to be mapped onto an animated 3D hardcover book in a website, so do NOT include external background, table, extra books, perspective, mockup scene, hands or cast shadows outside the cover.
+Material: deep midnight navy tactile fine linen hardcover, subtle realistic cloth grain, restrained embossed antique gold foil typography, fine double gold border with generous inset margins, beautiful sophisticated academic publishing design. Warm soft studio light reveals embossing, premium editorial hierarchy, extremely crisp legible text.
+Exact cover text with no extra words:
+at top small: "SAURIN SIR"
+large central title on three lines: "THE" "COMMERCE" "NOTEBOOK"
+below: "Concepts. Clarity. Confidence."
+Lower half a carefully spaced elegant list of six subjects exactly:
+"Accountancy"
+"Legal Studies"
+"Finance"
+"Statistics"
+"Taxation"
+"Cost & Management Accounting"
+At bottom a small delicate gold open-book emblem. Subtle geometric ledger line motifs behind the lower typography, no actual numerical data, no institutional logos, no author qualifications, no seals, no fake edition dates.
+Keep every word comfortably inside the border, perfectly spelled and readable. Palette midnight navy and muted warm gold only. Output a finished premium flat front cover artwork with convincing physical material texture.
