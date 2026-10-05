@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-const LINKS = [{ label: "About", href: "#about" }, { label: "Courses", href: "#subjects" }, { label: "Learning", href: "#features" }, { label: "FAQs", href: "#faq" }, { label: "Contact", href: "#contact" }];
+const LINKS = [{ label: "About", href: "#about" }, { label: "Try a concept", href: "#try-a-concept" }, { label: "Courses", href: "#subjects" }, { label: "Learning", href: "#features" }, { label: "FAQs", href: "#faq" }, { label: "Contact", href: "#contact" }];
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);

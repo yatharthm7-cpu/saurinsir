@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
 import "./globals.css";
+import { SITE_URL } from "@/lib/site";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,10 +21,14 @@ const fraunces = Fraunces({
   axes: ["opsz", "SOFT"],
 });
 
+const TITLE = "Saurin Mehta Sir's Tuition — Commerce that clicks";
+const DESCRIPTION =
+  "Commerce tuition for Class 11–12, BCom, MCom, BBA, MBA and CA & ICMA Foundation by Saurin Mehta in Naranpura, Ahmedabad. Explore subjects and enquire about current batches.";
+
 export const metadata: Metadata = {
-  title: "Saurin Mehta Sir's Tuition — Commerce that clicks",
-  description:
-    "Commerce tuition for Class 11–12, BCom, MCom, BBA, MBA and CA & ICMA Foundation by Saurin Mehta in Naranpura, Ahmedabad. Explore subjects and enquire about current batches.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: [
     "commerce tuition Ahmedabad",
     "Naranpura tuition",
@@ -34,12 +39,20 @@ export const metadata: Metadata = {
     "Saurin Mehta",
   ],
   authors: [{ name: "Saurin Mehta" }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Saurin Mehta Sir's Tuition — Commerce that clicks",
-    description:
-      "Commerce tuition for Class 11–12, BCom, MCom, BBA, MBA and CA & ICMA Foundation in Naranpura, Ahmedabad. Explore subjects and enquire about current batches.",
+    title: TITLE,
+    description: DESCRIPTION,
     type: "website",
     locale: "en_IN",
+    siteName: "Saurin Mehta Sir's Tuition",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
   },
 };
 

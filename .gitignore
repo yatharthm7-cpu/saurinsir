@@ -43,6 +43,7 @@ next-env.d.ts
 # local agent state and preview artifacts
 /.mimosa/
 /.shots/
+/.verify/
 /.dev-log.txt
 /tonecheck.cjs
 # Original video is already included in public/hero-section.mp4
