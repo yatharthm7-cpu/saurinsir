@@ -86,13 +86,12 @@ it.
   count or link is shown. `GOOGLE_BUSINESS.url` is the single field to set.
 - **Featured testimonial, video testimonial, progress stories, classroom photo
   gallery** — omitted; no approved footage, evidence or photographs.
-- **Teacher portrait and introduction video** — not supplied, so the
-  introduction remains the typography-based plate. No synthetic person was
-  generated and no credentials were invented.
+- **Introduction video** — not supplied, so no video or credentials were
+  invented. The teacher section uses the supplied original photograph.
 
 ## Owner material still needed
 
-1. Teacher portrait, and introduction footage with captions and a poster.
+1. Introduction footage with captions and a poster.
 2. Google Business Profile link (to be verified as the correct centre).
 3. Approved student/parent testimonials, with permission for names, photos and
    video; preserved verbatim.
@@ -120,3 +119,5 @@ it.
 
 The upgrade is prepared for GitHub. The configured site URL is the owner-confirmed https://saurinsir.vercel.app; change SITE_URL in lib/site.ts when the custom domain is connected. The local preview remains
 available at http://localhost:3000.
+
+Portrait update: the supplied real teacher photograph replaces the Sm. placeholder and is preserved unaltered at public/saurin-mehta-portrait.png. It is shown on a deep-blue backdrop inside the notebook card. A generated background mask was removed after it produced visible cutout edges around the teacher. Later generated blue-background edits were rejected because they altered his face and clothing. The original outdoor scene remains inside the photograph to preserve his appearance.

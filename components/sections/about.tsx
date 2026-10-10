@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/ui/section-label";
 import { Reveal } from "@/components/ui/reveal";
+import Image from "next/image";
 
 const LEVELS = ["Classes 11–12", "BCom", "MCom", "BBA", "MBA", "CA & ICMA Foundation"];
 
@@ -53,15 +54,21 @@ export default function About() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="teacher-plate relative overflow-hidden rounded-sm border border-gold-400/25 p-10 sm:p-14">
+          <div className="teacher-plate relative overflow-hidden rounded-sm border border-gold-400/25 p-6 sm:p-8">
             <span className="text-xs uppercase tracking-[0.25em] text-gold-300">
               The commerce notebook
             </span>
-            <div
-              aria-hidden="true"
-              className="my-10 font-serif text-8xl italic text-gold-400/70"
-            >
-              Sm.
+            <div className="teacher-photo-backdrop my-8 rounded-sm border border-gold-400/25 p-3 sm:p-5">
+              <div className="overflow-hidden rounded-sm border border-gold-400/20 shadow-[0_18px_40px_#0007]">
+                <Image
+                  src="/saurin-mehta-portrait.png"
+                  alt="Saurin Mehta wearing a navy suit"
+                  width={1024}
+                  height={768}
+                  sizes="(min-width: 1280px) 440px, (min-width: 1024px) 38vw, (min-width: 640px) 80vw, 82vw"
+                  className="block h-auto w-full"
+                />
+              </div>
             </div>
             <p className="font-serif text-3xl text-ivory-50">
               Concepts first.<br />Understanding follows.
