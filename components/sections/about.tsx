@@ -46,7 +46,7 @@ export default function About() {
           </p>
 
           <a
-            href="#try-a-concept"
+            href="/learning#try-a-concept"
             className="mt-8 inline-block text-gold-300 underline underline-offset-8 hover:text-gold-200"
           >
             Try a sample concept &rarr;

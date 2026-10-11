@@ -40,7 +40,7 @@ export default function Contact() {
               </a>
             </div>
             <p className="annotation mt-10 max-w-sm text-gold-300/90">
-              If you are unsure which subject to ask about, start with the course finder above.
+              If you are unsure which subject to ask about, start with the <a href="/courses" className="underline underline-offset-4">course finder</a>.
             </p>
           </Reveal>
           <Reveal delay={100}>

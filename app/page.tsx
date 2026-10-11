@@ -9,8 +9,17 @@ import Faq from "@/components/sections/faq";
 import Contact, { WhatsAppAction } from "@/components/sections/contact";
 import Footer from "@/components/sections/footer";
 import ChapterRail from "@/components/ui/chapter-rail";
+import { publicReviews } from "@/lib/review-store";
+import { connection } from "next/server";
 
-export default function Home() {
+export default async function Home() {
+  await connection();
+  const { reviews, reviewError } = await publicReviews().then((reviews) => ({
+    reviews, reviewError: false,
+  })).catch((error) => {
+    console.error("Unable to load public reviews", error);
+    return { reviews: [], reviewError: true };
+  });
   return (
     <div id="top">
       <a href="#main-content" className="skip-link">Skip to content</a>
@@ -22,7 +31,7 @@ export default function Home() {
         <MiniLesson />
         <Subjects />
         <Features />
-        <Reviews />
+        <Reviews entries={reviews} unavailable={reviewError} />
         <Faq />
         <Contact />
       </main>

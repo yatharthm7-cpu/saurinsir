@@ -4,7 +4,7 @@ const QUESTIONS = [
   { q: "Which courses can I enquire about?", a: "The course list includes Classes 11–12, BCom, MCom, BBA, MBA and CA & ICMA Foundation. Use the subject filters above, then enquire about coverage for your exact syllabus." },
   { q: "How do I find the right batch?", a: "Send your course, year and subjects on WhatsApp, or call the centre. Ask about the available batches, teaching format and timings before enrolling." },
   { q: "Can I attend a demo class?", a: "Contact the centre to ask whether a demo is available for your subject and batch, and whether any fee applies." },
-  { q: "Where are classes held?", a: "The centre is at Swapneel Complex in Naranpura, Ahmedabad. The full address and map are in the contact section below." },
+  { q: "Where are classes held?", a: "The centre is at Swapneel Complex in Naranpura, Ahmedabad. The full address and map are on the contact page." },
   { q: "What are the fees and batch timings?", a: "Please contact the centre for the current fees and timetable for your course. These can depend on the subject and batch." },
 ];
 export default function Faq() {

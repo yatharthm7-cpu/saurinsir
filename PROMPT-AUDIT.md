@@ -121,3 +121,16 @@ The upgrade is prepared for GitHub. The configured site URL is the owner-confirm
 available at http://localhost:3000.
 
 Portrait update: the supplied real teacher photograph replaces the Sm. placeholder and is preserved unaltered at public/saurin-mehta-portrait.png. It is shown on a deep-blue backdrop inside the notebook card. A generated background mask was removed after it produced visible cutout edges around the teacher. Later generated blue-background edits were rejected because they altered his face and clothing. The original outdoor scene remains inside the photograph to preserve his appearance.
+
+## 2026-10-11: pages and review queue
+
+Added dedicated About, Courses, Learning, Reviews, FAQ, Contact, and Privacy
+pages, plus a themed 404 page. Review submissions now go to a private queue;
+the admin desk supports search/filter, approval after manual verification,
+rejection, unpublishing, featuring, deletion and CSV export. No real reviews
+have been received or published. Local preview storage works. Production
+requires a dedicated Supabase project, the included database migration and
+server-side secrets. The owner chose to create a new Supabase organization,
+so project creation is pending. The current Vercel connection returned 403,
+so live environment variables also need owner access. The review form stays
+closed in production until storage and secrets are connected.
