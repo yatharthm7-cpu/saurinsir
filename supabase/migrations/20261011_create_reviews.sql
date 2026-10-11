@@ -26,3 +26,13 @@ revoke all on table public.reviews from anon, authenticated;
 grant select, insert, update, delete on table public.reviews to service_role;
 -- No anon/authenticated policies: even a leaked publishable key cannot read
 -- verification contacts or move a review into the approved state.
+
+-- Projects with automatic RLS create this helper in public. Event triggers
+-- still work without letting browser roles call its SECURITY DEFINER body.
+do $$
+begin
+  if to_regprocedure('public.rls_auto_enable()') is not null then
+    execute 'revoke execute on function public.rls_auto_enable() from public, anon, authenticated';
+  end if;
+end
+$$;

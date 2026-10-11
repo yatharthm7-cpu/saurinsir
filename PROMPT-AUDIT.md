@@ -130,7 +130,18 @@ the admin desk supports search/filter, approval after manual verification,
 rejection, unpublishing, featuring, deletion and CSV export. No real reviews
 have been received or published. Local preview storage works. Production
 requires a dedicated Supabase project, the included database migration and
-server-side secrets. The owner chose to create a new Supabase organization,
-so project creation is pending. The current Vercel connection returned 403,
-so live environment variables also need owner access. The review form stays
-closed in production until storage and secrets are connected.
+server-side secrets. The owner created project `inoiphiwpqhmjoczqyxj` in the
+separate Saurin Sir organization (Mumbai region). On 2026-10-11, the review
+table was created there through the SQL Editor and verified: RLS is enabled,
+browser roles cannot read it, the server role can moderate it, and it contains
+zero reviews. The Supabase Security Advisor shows zero errors and warnings;
+its one informational note about an RLS table without policies is intentional.
+The SQL Editor action does not appear in Supabase's migration history. The
+GitHub integration's production migration switch remains off, so pushing this
+file will not automatically rerun it.
+
+Vercel now has the project's `SUPABASE_URL` in its Production environment.
+The server-only `SUPABASE_SECRET_KEY`, `ADMIN_PASSWORD`, and
+`ADMIN_SESSION_SECRET` still need to be entered directly by the owner. A new
+production deployment and a live pending-review/admin test are required after
+those values are saved. Until then the public review form remains closed.
