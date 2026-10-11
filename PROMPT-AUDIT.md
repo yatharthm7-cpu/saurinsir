@@ -140,8 +140,12 @@ The SQL Editor action does not appear in Supabase's migration history. The
 GitHub integration's production migration switch remains off, so pushing this
 file will not automatically rerun it.
 
-Vercel now has the project's `SUPABASE_URL` in its Production environment.
-The server-only `SUPABASE_SECRET_KEY`, `ADMIN_PASSWORD`, and
-`ADMIN_SESSION_SECRET` still need to be entered directly by the owner. A new
-production deployment and a live pending-review/admin test are required after
-those values are saved. Until then the public review form remains closed.
+Vercel now has `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `ADMIN_PASSWORD`, and
+`ADMIN_SESSION_SECRET` in its Production environment. Deployment
+`6Y6VJPwo4CZfcnfZejwnaCxLv3Ld` reached Ready on 2026-10-11. The live
+`/reviews` page rendered the submission form without a storage error, and the
+temporary admin password opened `/admin` with zero pending, approved, and
+rejected reviews. Sign-out returned to `/admin/login`. No synthetic review was
+submitted because the form requires an attestation of a genuine learning
+experience. An actual consented submission and approval remain for the owner
+to test when a real student or parent is available.
