@@ -24,11 +24,12 @@ export async function submitReview(form: FormData) {
   const consent = field(form, "consent") === "yes";
   if (name.length < 2 || name.length > 80 || !["student", "parent"].includes(role) ||
       !LEVELS.includes(course as (typeof LEVELS)[number]) || quote.length < 30 || quote.length > 1200 ||
-      contact.length < 5 || contact.length > 150 || (rating !== null && (![1, 2, 3, 4, 5].includes(rating))) || !consent) {
+      (contact.length > 0 && contact.length < 5) || contact.length > 150 ||
+      (rating !== null && (![1, 2, 3, 4, 5].includes(rating))) || !consent) {
     redirect("/reviews?error=invalid#write-review");
   }
   try {
-    await createReview({ name, role: role as "student" | "parent", course, quote, contact, rating });
+    await createReview({ name, role: role as "student" | "parent", course, quote, contact: contact || null, rating });
   } catch (error) {
     console.error("Review submission failed", error);
     redirect("/reviews?error=unavailable#write-review");
@@ -53,7 +54,6 @@ export async function moderateReview(form: FormData) {
   const id = field(form, "id");
   const action = field(form, "action");
   if (!/^[a-f0-9-]{36}$/.test(id)) redirect("/admin?error=invalid");
-  if (action === "approve" && field(form, "verified") !== "yes") redirect("/admin?error=verify");
   if (!["delete", "approve", "reject", "unpublish", "feature", "unfeature"].includes(action)) redirect("/admin?error=invalid");
   try {
     if (action === "delete") await deleteReview(id);

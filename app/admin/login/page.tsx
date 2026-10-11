@@ -13,7 +13,7 @@ export default async function AdminLogin({ searchParams }: { searchParams: Promi
       <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gold-400 text-ink-950"><LockKeyhole size={24} /></div>
       <p className="mt-8 text-xs uppercase tracking-[0.24em] text-gold-300">Private notebook</p>
       <h1 className="mt-4 font-serif text-4xl">Review administration.</h1>
-      <p className="mt-4 text-sm leading-relaxed text-zinc-300">Sign in to verify submissions and choose which reviews appear on the public site.</p>
+      <p className="mt-4 text-sm leading-relaxed text-zinc-300">Sign in to review submissions and choose which ones appear on the public site.</p>
       {!ready ? <p role="alert" className="mt-7 border border-gold-400/30 bg-gold-400/10 p-4 text-sm leading-relaxed text-gold-300">Admin access is not configured yet. Set a strong ADMIN_PASSWORD of at least 20 characters and a random ADMIN_SESSION_SECRET of at least 32 characters in the server environment.</p> : <form action={loginAdmin} className="mt-8 space-y-5">
         {params.error === "invalid" && <p role="alert" className="border border-red-300/40 bg-red-300/10 p-3 text-sm text-red-200">That password was not accepted.</p>}
         <label className="block text-sm">Admin password<input type="password" name="password" required autoComplete="current-password" className="mt-2 w-full rounded-md border border-white/20 bg-ink-950 px-4 py-3" /></label>

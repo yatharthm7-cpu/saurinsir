@@ -21,7 +21,7 @@ export default function Reviews({ entries, standalone = false, unavailable = fal
       <Reveal>
         <SectionLabel tone="ivory">In their own words</SectionLabel>
         <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.08] sm:text-5xl">What students and parents say</h2>
-        <p className="mt-5 max-w-xl leading-relaxed text-ivory-text-dim">Reviews are published only after verification. Their words are shown as submitted, with their permission.</p>
+        <p className="mt-5 max-w-xl leading-relaxed text-ivory-text-dim">Reviews are published only after admin approval. Their words are shown as submitted, with their permission.</p>
       </Reveal>
 
       {GOOGLE_BUSINESS.url && <a href={GOOGLE_BUSINESS.url} target="_blank" rel="noopener noreferrer" className="mt-10 inline-flex min-h-11 items-center gap-2 border-b border-gold-600 text-sm font-medium text-gold-700">Read reviews on Google <ExternalLink size={15} /></a>}
@@ -39,7 +39,7 @@ export default function Reviews({ entries, standalone = false, unavailable = fal
         {remaining.length > INITIAL_COUNT && <button type="button" aria-expanded={expanded} onClick={() => setExpanded((value) => !value)} className="mx-auto mt-8 flex min-h-11 items-center gap-2 rounded-full border border-ink-950 px-6 py-2.5 text-sm font-medium hover:bg-ink-950 hover:text-white">{expanded ? "Show fewer" : `Show ${remaining.length - INITIAL_COUNT} more`} <ChevronDown size={16} className={expanded ? "rotate-180" : ""} /></button>}
       </>}
 
-      {entries.length === 0 && <div className="mt-12 border border-ivory-line bg-white p-8 sm:p-10"><p className="font-serif text-2xl">{unavailable ? "Reviews are temporarily unavailable." : "The first page is still being written."}</p><p className="mt-3 max-w-xl text-sm leading-relaxed text-ivory-text-dim">{unavailable ? "Please check back later or contact the centre directly." : "No student or parent reviews have been verified for publication yet. If you have studied here, you can share your experience for review."}</p></div>}
+      {entries.length === 0 && <div className="mt-12 border border-ivory-line bg-white p-8 sm:p-10"><p className="font-serif text-2xl">{unavailable ? "Reviews are temporarily unavailable." : "The first page is still being written."}</p><p className="mt-3 max-w-xl text-sm leading-relaxed text-ivory-text-dim">{unavailable ? "Please check back later or contact the centre directly." : "No student or parent reviews have been approved for publication yet. If you have studied here, you can share your experience for review."}</p></div>}
 
       {!standalone && !unavailable && <Link href="/reviews#write-review" className="mt-9 inline-flex min-h-11 items-center rounded-full bg-ink-950 px-6 py-3 text-sm font-semibold text-white hover:bg-ink-800">Share your experience <span aria-hidden="true" className="ml-2">↗</span></Link>}
     </div>

@@ -8,16 +8,16 @@ import { createClient } from "@supabase/supabase-js";
 export type ReviewStatus = "pending" | "approved" | "rejected";
 export type ReviewRecord = {
   id: string; name: string; role: "student" | "parent"; course: string;
-  quote: string; rating: number | null; contact: string; sourceUrl: string;
+  quote: string; rating: number | null; contact: string | null; sourceUrl: string;
   status: ReviewStatus; featured: boolean; createdAt: string; updatedAt: string;
-  consentAt: string; verifiedAt: string | null;
+  consentAt: string; approvedAt: string | null;
 };
 export type PublicReview = Pick<ReviewRecord, "id" | "name" | "role" | "course" | "quote" | "rating" | "sourceUrl" | "featured" | "createdAt">;
 type ReviewRow = {
   id: string; name: string; role: ReviewRecord["role"]; course: string;
-  quote: string; rating: number | null; contact: string; source_url: string;
+  quote: string; rating: number | null; contact: string | null; source_url: string;
   status: ReviewStatus; featured: boolean; created_at: string; updated_at: string;
-  consent_at: string; verified_at: string | null;
+  consent_at: string; approved_at: string | null;
 };
 
 const LOCAL_DIR = path.join(process.cwd(), ".review-data", "reviews");
@@ -46,7 +46,7 @@ function fromRow(row: ReviewRow): ReviewRecord {
     quote: row.quote, rating: row.rating, contact: row.contact,
     sourceUrl: row.source_url, status: row.status, featured: row.featured,
     createdAt: row.created_at, updatedAt: row.updated_at,
-    consentAt: row.consent_at, verifiedAt: row.verified_at,
+    consentAt: row.consent_at, approvedAt: row.approved_at,
   };
 }
 function toRow(record: ReviewRecord): ReviewRow {
@@ -55,7 +55,7 @@ function toRow(record: ReviewRecord): ReviewRow {
     quote: record.quote, rating: record.rating, contact: record.contact,
     source_url: record.sourceUrl, status: record.status, featured: record.featured,
     created_at: record.createdAt, updated_at: record.updatedAt,
-    consent_at: record.consentAt, verified_at: record.verifiedAt,
+    consent_at: record.consentAt, approved_at: record.approvedAt,
   };
 }
 
@@ -110,7 +110,7 @@ export async function createReview(input: Pick<ReviewRecord, "name" | "role" | "
   const now = new Date().toISOString();
   const record: ReviewRecord = {
     ...input, id: randomUUID(), sourceUrl: "", status: "pending", featured: false,
-    createdAt: now, updatedAt: now, consentAt: now, verifiedAt: null,
+    createdAt: now, updatedAt: now, consentAt: now, approvedAt: null,
   };
   if (local) await writeLocal(record);
   else {
@@ -133,11 +133,11 @@ export async function changeReview(id: string, action: "approve" | "reject" | "u
   const previousUpdate = review.updatedAt;
   const now = new Date().toISOString();
   if (action === "approve") {
-    review.status = "approved"; review.verifiedAt = now;
+    review.status = "approved"; review.approvedAt = now;
   } else if (action === "reject") {
     review.status = "rejected"; review.featured = false;
   } else if (action === "unpublish") {
-    review.status = "pending"; review.featured = false; review.verifiedAt = null;
+    review.status = "pending"; review.featured = false; review.approvedAt = null;
   } else if (action === "feature" && review.status === "approved") {
     review.featured = true;
   } else if (action === "unfeature") {

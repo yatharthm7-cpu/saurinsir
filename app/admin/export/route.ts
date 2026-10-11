@@ -12,7 +12,7 @@ export async function GET() {
   if (!await isAdmin()) return new Response("Unauthorized", { status: 401 });
   if (!reviewStoreReady()) return new Response("Storage unavailable", { status: 503 });
   const rows = await listReviews();
-  const columns = ["id", "status", "name", "role", "course", "rating", "quote", "contact", "createdAt", "consentAt", "verifiedAt", "featured"] as const;
+  const columns = ["id", "status", "name", "role", "course", "rating", "quote", "contact", "createdAt", "consentAt", "approvedAt", "featured"] as const;
   const data = [columns.join(","), ...rows.map((row) => columns.map((column) => csv(row[column])).join(","))].join("\r\n");
   return new Response(`\uFEFF${data}`, { headers: { "Content-Type": "text/csv; charset=utf-8", "Content-Disposition": "attachment; filename=saurinsir-reviews.csv", "Cache-Control": "private, no-store" } });
 }

@@ -126,7 +126,7 @@ Portrait update: the supplied real teacher photograph replaces the Sm. placehold
 
 Added dedicated About, Courses, Learning, Reviews, FAQ, Contact, and Privacy
 pages, plus a themed 404 page. Review submissions now go to a private queue;
-the admin desk supports search/filter, approval after manual verification,
+the admin desk supports search/filter, approval after manual review,
 rejection, unpublishing, featuring, deletion and CSV export. No real reviews
 have been received or published. Local preview storage works. Production
 requires a dedicated Supabase project, the included database migration and
@@ -139,6 +139,15 @@ its one informational note about an RLS table without policies is intentional.
 The SQL Editor action does not appear in Supabase's migration history. The
 GitHub integration's production migration switch remains off, so pushing this
 file will not automatically rerun it.
+
+Follow-up review form change: phone or email is optional, with no identity
+verification step or verified-review claim. The admin still approves publication
+after checking submissions for spam, private information and consent. The
+second SQL migration makes contact nullable and renames the old timestamp to
+`approved_at`. It was applied to the live database before deploying the matching
+code. A follow-up query confirmed contact is nullable, the old column is gone,
+`approved_at` exists, RLS remains enabled, and the table still contains zero
+reviews. No review was manufactured to test the public form.
 
 Vercel now has `SUPABASE_URL`, `SUPABASE_SECRET_KEY`, `ADMIN_PASSWORD`, and
 `ADMIN_SESSION_SECRET` in its Production environment. Deployment
